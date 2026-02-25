@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./media/images/Poppyseed.png">
+
+    <title>PoppyseedHR | Professional HR Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <!--i class="fas fa-seedling logo-icon"></i>
+                <PoppyseedHR-->
+                <img src="./media/images/PoppySeedHR-Logo-FULL.png" style="max-height: 6rem;">
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="clients.html">Client Work</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#" onclick="openContactModal(); return false;">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Video Section -->
+        <section class="hero-section">
+            <div class="hero-video-strip">
+                <video id="heroVideo" autoplay muted loop playsinline class="hero-video">
+                    <source src="./media/video/PoppyReel.mp4" type="video/mp4">
+                </video>
+                <div class="hero-overlay"></div>
+                <div class="hero-title">
+                    <h1>Customizing HR to meet your company’s unique needs</h1>
+                </div>
+            </div>
+            <div class="hero-cards-wrapper">
+                <div class="hero-card">
+                    <p>Hi, I’m Lauren. I’m the HR Consultant you may not know you needed. I have 10+ years of experience as an HR professional working with small organizations that range from organic food startups to non-profits. I have a Certificate in Human Resource Management from San Francisco State University and I’m a SHRM Certified Professional.</p>
+                </div>
+                <div class="hero-card">
+                    <p>I’ve spent over 15 years working very closely with Founders, CEOs, and Owners. I understand the nuanced challenges that leaders face all while trying to steer the ship with the full team in tow. A strong support system is critical for any leadership team and I love this niche that I’ve found that allows me to use my small business building skills along with my people-forward approach.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+                <!-- How I Work Section -->
+                <div style="margin-bottom: 60px;">
+                    <h2 style="text-align: center; font-size: 2.5rem; color: var(--dark-color); margin-bottom: 40px;">How I Work</h2>
+                    <section class="how-i-work" style="display: flex; flex-direction: column; gap: 50px; max-width: 900px; margin: 0 auto; padding: 0 20px;">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <img src="./media/images/Poppyseed.png">
+                            </div>
+                            <h3>Long Term Strategic Partnership</h3>
+                            <p>My client relationships are mostly long term. I form strong relationships with both leadership teams and employees through regular check-ins with CEOs, Presidents, CFOs, and Founders.</p>
+                            <ul style="text-align: left; margin-top: 15px; line-height: 1.8; padding-left: 40px;">
+                                <li>Strategic HR planning and execution</li>
+                                <li>Alignment with organizational goals</li>
+                                <li>Hot topic discussions (new laws, compliance, safety)</li>
+                                <li>Employee relations matters</li>
+                                <li>Serve as go-to resource for all employee HR concerns</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <img src="./media/images/Poppyseed.png">
+                            </div>
+                            <h3>Project-Based Services</h3>
+                            <p>For organizations that need focused support on specific initiatives, I offer project-based engagements tailored to your immediate needs. These targeted projects deliver measurable results while building a foundation for your HR success.</p>
+                            <ul style="text-align: left; margin-top: 15px; line-height: 1.8; padding-left: 40px;">
+                                <li>Recruitment and hiring campaigns</li>
+                                <li>Employee handbook development</li>
+                                <li>Compensation audits and strategy</li>
+                                <li>Benefits administration setup</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- What I Do Section -->
+                <div style="margin-bottom: 60px;">
+                    <h2 style="text-align: center; font-size: 2.5rem; color: var(--dark-color); margin-bottom: 40px;">What I Do</h2>
+                    <section id="services" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 1000px; margin: 0 auto;">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Talent Acquisition & Management</h3>
+                            <p>From recruiting top talent to creating seamless onboarding experiences, I help you build and maintain a strong workforce that drives your organization forward.</p>
+                            <ul style="text-align: left; margin-top: 15px; line-height: 1.8; padding-left: 40px;">
+                                <li>Recruiting and hiring strategies</li>
+                                <li>Onboarding and off-boarding programs</li>
+                                <li>Employee relations support</li>
+                                <li>Conflict resolution</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3>Culture & Employee Experience</h3>
+                            <p>Build a workplace culture where employees thrive. I help foster an inclusive, engaging environment that reflects your values and attracts top talent.</p>
+                            <ul style="text-align: left; margin-top: 15px; line-height: 1.8; padding-left: 40px;">
+                                <li>Fostering organizational culture</li>
+                                <li>Diversity, Equity & Inclusion (DEI) initiatives</li>
+                                <li>Learning and development programs</li>
+                                <li>Employee engagement strategies</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3>Compliance & Policies</h3>
+                            <p>Stay compliant and protected with comprehensive HR policies and practices. I ensure your organization meets all legal requirements while creating clear, fair guidelines for your team.</p>
+                            <ul style="text-align: left; margin-top: 15px; line-height: 1.8; padding-left: 40px;">
+                                <li>Employee handbooks and policies</li>
+                                <li>Compliance management and audits</li>
+                                <li>Legal requirement updates</li>
+                                <li>Safety policies and procedures</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <h3>Performance Management</h3>
+                            <p>I help companies create a continuous, forward-thinking system that actually links what your people do every day to your big-picture business goals.</p>
+                            <ul style="text-align: left; margin-top: 15px; line-height: 1.8; padding-left: 40px;">
+                                <li>Create a culture of open feedback</li>
+                                <li>System design and implementation</li>
+                                <li>Goal setting</li>
+                                <li>Compensation review and alignment</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="./media/images/Poppyseed.png"></i>
+                    PoppyseedHR
+                </div>
+                
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/lauren-storella-97172318" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="#" onclick="openContactModal(); return false;">
+                        <i class="fas fa-envelope"></i> Contact
+                    </a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 PoppyseedHR. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal-overlay" id="contactModal">
+        <div class="contact-modal-box">
+            <button class="contact-modal-close" onclick="closeContactModal()">&times;</button>
+            <h2>Get in Touch</h2>
+            <form onsubmit="submitContactForm(event)">
+                <div class="contact-form-group">
+                    <label for="contact-from">Your Email</label>
+                    <input type="email" id="contact-from" placeholder="you@example.com" required>
+                </div>
+                <div class="contact-form-group">
+                    <label for="contact-subject">Subject</label>
+                    <input type="text" id="contact-subject" placeholder="How can I help?" required>
+                </div>
+                <div class="contact-form-group">
+                    <label for="contact-message">Message</label>
+                    <textarea id="contact-message" placeholder="Tell me about your organization and what you're looking for..." required></textarea>
+                </div>
+                <button type="submit" class="contact-form-submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Hero video half-speed (set on multiple events for browser compatibility)
+        const heroVideo = document.getElementById('heroVideo');
+        heroVideo.playbackRate = 0.5;
+        heroVideo.addEventListener('canplay', () => { heroVideo.playbackRate = 0.5; });
+
+        // Contact Modal
+        function openContactModal() {
+            document.getElementById('contactModal').classList.add('open');
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.remove('open');
+        }
+
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) closeContactModal();
+        });
+
+        function submitContactForm(e) {
+            e.preventDefault();
+            const from = document.getElementById('contact-from').value;
+            const subject = encodeURIComponent(document.getElementById('contact-subject').value);
+            const message = encodeURIComponent(
+                'From: ' + from + '\n\n' + document.getElementById('contact-message').value
+            );
+            window.location.href = 'mailto:lauren@poppyseedhr.com?subject=' + subject + '&body=' + message;
+            closeContactModal();
+        }
+    </script>
+</body>
+</html>

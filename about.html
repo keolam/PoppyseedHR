@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./media/images/Poppyseed.png">
+
+    <title>About | PoppyseedHR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="./media/images/PoppySeedHR-Logo-FULL.png" style="max-height: 6rem;">
+            </a>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="clients.html">Client Work</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#" onclick="openContactModal(); return false;">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="about-header">
+                <h1>My Core Values</h1>
+            </div>
+
+            <section class="intro-section" style="align-items: flex-start; margin-bottom: 80px;">
+                <div class="intro-text">
+                    <h2 style="color: var(--primary-color); margin-top: 0; margin-bottom: 20px;">Trust</h2>
+                    <p style="margin-bottom: 20px;">For an HR Consultant relationship to provide true value, we have to trust each other. Trust takes time to establish, but I firmly believe that a successful partnership must be built on this foundation.  My goals are to build trust with senior leadership so we can work on the long-term HR strategy that aligns with the organizational goals. And also to build trust with the employees so they feel comfortable coming to me for any HR related question, concern or dilemma.</p>
+
+                    <h2 style="color: var(--primary-color); margin-top: 40px; margin-bottom: 20px;">Resourcefulness</h2>
+                    <p style="margin-bottom: 20px;">For anyone who has ever thrived in a small organization, this skill is key! Margins are crucial. Budgets are tight.  Competition for top talent is fierce.  Executing at a high level without deep pockets requires everyone on the team to have a resourcefulness mindset. I know this, I've lived it and now I know how to support a team or help them develop this skill.</p>
+
+                    <h2 style="color: var(--primary-color); margin-top: 40px; margin-bottom: 20px;">Excellent Customer Service Skills</h2>
+                    <p style="margin-bottom: 20px;">During my early career years I worked in the hospitality industry.  I believe this deep layer of customer service skills set me apart from other HR professionals.  I treat everyone like a 'customer' with the goal of finding solutions that benefit both parties. I build strong relationships where we can collaborate creatively.</p>
+
+                    <h2 style="color: var(--primary-color); margin-top: 40px; margin-bottom: 20px;">Authenticity</h2>
+                    <p style="margin-bottom: 20px;">"Be yourself; everyone else is already taken." ~Oscar Wilde</p>
+                </div>
+
+                <div style="flex: 0.9; display: flex; align-items: flex-start; justify-content: center;">
+                    <div class="intro-image" style="height: 90vh;">
+                        <img src="./media/images/Poppies2.jpg" alt="Poppy flowers">
+                    </div>
+                </div>
+            </section>
+
+            <section class="intro-section" style="align-items: flex-start;">
+                <div style="flex: 0.9; display: flex; align-items: flex-start; justify-content: center;">
+                    <div class="intro-image" style="max-width: 350px;">
+                        <img src="./media/images/LS2.jpg" alt="Lauren Storella">
+                    </div>
+                </div>
+
+                <div class="intro-text">
+                    <h3 style="color: var(--dark-color); margin-top: 0; margin-bottom: 15px;">A little about me behind the work….</h3>
+                    <p style="margin-bottom: 20px;">As a certified Yoga Instructor,  I also use the principles of yoga to guide my professional work including compassion, flexibility and empathy.  I believe that a healthy work / life balance is just as important as the mind, body, spirit balance that we learn through yoga.</p>
+                    <p style="margin-bottom: 20px;">My family and I relocated to Oahu, Hawaii in July 2025, moving from Salem, Massachusetts. Prior to that, I lived in San Francisco, CA, for 16 years. I enjoy exploring new places, and currently, that involves discovering the beautiful beaches and hikes on the island with my family. My personal interests also include practicing yoga, reading, and chocolate tasting.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="./media/images/Poppyseed.png"></i>
+                    PoppyseedHR
+                </div>
+
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/lauren-storella-97172318" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="#" onclick="openContactModal(); return false;">
+                        <i class="fas fa-envelope"></i> Contact
+                    </a>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 PoppyseedHR. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal-overlay" id="contactModal">
+        <div class="contact-modal-box">
+            <button class="contact-modal-close" onclick="closeContactModal()">&times;</button>
+            <h2>Get in Touch</h2>
+            <form onsubmit="submitContactForm(event)">
+                <div class="contact-form-group">
+                    <label for="contact-from">Your Email</label>
+                    <input type="email" id="contact-from" placeholder="you@example.com" required>
+                </div>
+                <div class="contact-form-group">
+                    <label for="contact-subject">Subject</label>
+                    <input type="text" id="contact-subject" placeholder="How can I help?" required>
+                </div>
+                <div class="contact-form-group">
+                    <label for="contact-message">Message</label>
+                    <textarea id="contact-message" placeholder="Tell me about your organization and what you're looking for..." required></textarea>
+                </div>
+                <button type="submit" class="contact-form-submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Contact Modal
+        function openContactModal() {
+            document.getElementById('contactModal').classList.add('open');
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.remove('open');
+        }
+
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) closeContactModal();
+        });
+
+        function submitContactForm(e) {
+            e.preventDefault();
+            const from = document.getElementById('contact-from').value;
+            const subject = encodeURIComponent(document.getElementById('contact-subject').value);
+            const message = encodeURIComponent(
+                'From: ' + from + '\n\n' + document.getElementById('contact-message').value
+            );
+            window.location.href = 'mailto:lauren@poppyseedhr.com?subject=' + subject + '&body=' + message;
+            closeContactModal();
+        }
+    </script>
+</body>
+</html>

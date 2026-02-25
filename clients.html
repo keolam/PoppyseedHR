@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./media/images/Poppyseed.png">
+
+    <title>Clients | PoppyseedHR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="./media/images/PoppySeedHR-Logo-FULL.png" style="max-height: 6rem;">
+            </a>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="clients.html">Client Work</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#" onclick="openContactModal(); return false;">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Video Section -->
+        <section class="hero-section">
+            <div class="hero-video-strip">
+                <video id="heroVideo" autoplay muted loop playsinline class="hero-video">
+                    <source src="./media/video/PoppyReel.mp4" type="video/mp4">
+                </video>
+                <div class="hero-overlay"></div>
+                <div class="hero-title">
+                    <h1>Client Feedback</h1>
+                </div>
+            </div>
+
+            <!-- Full-width carousel -->
+            <div class="carousel-wrapper">
+                <div class="carousel-slide active">
+                    <img src="./media/carousel/Expo_West.jpg" alt="Expo West">
+                    <div class="carousel-caption">Expo West 2023</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="./media/carousel/Farm_Day.jpg" alt="Farm Day">
+                    <div class="carousel-caption">Volunteer Farm Day</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="./media/carousel/Farm_Day_2.jpg" alt="Farm Day">
+                    <div class="carousel-caption">Volunteer Farm Day</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="./media/carousel/MLK_2018.jpg" alt="MLK Day 2018">
+                    <div class="carousel-caption">MLK Day 2018</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="./media/carousel/Rice_Farm.jpg" alt="Rice Farm">
+                    <div class="carousel-caption">Rice Farm Co-Op Visit</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="./media/carousel/Thailand.jpg" alt="Thailand">
+                    <div class="carousel-caption">Thai Farm</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="about-header">
+                <p>From the leaders and organizations I've had the privilege to partner with over the years.</p>
+            </div>
+
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="testimonial-text">"I have worked with Lauren for over 15 years now. As her leader, I trusted her completely to help us set the tone and message of our company culture in order to attract first in class talent. She was also critical in helping to manage our team efficiently and in compliance with all HR needs even from state to state. She is the consummate professional; confidential, dependable; and compassionate. We are now at different companies and I still turn to her for support on personnel endeavors. Savvy leaders should seek out Lauren's services. She will always have your back."</p>
+                    <div class="client-info">
+                        <div class="client-avatar" style="background-color: #d35400">
+                            K
+                        </div>
+                        <div class="client-details">
+                            <h4>Kate Tierney</h4>
+                            <p>KSW Global Imports</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="testimonial-text">"I had the pleasure of working with Lauren for over a decade at Alter Eco, where she joined at a very early stage and quickly became a foundational member of the team as the company grew and the brand evolved. Throughout her tenure, Lauren contributed across multiple functions, ultimately serving as Head of People and Culture, a role in which she made a lasting impact.<br> <br>Lauren's strong work ethic, emotional intelligence, and strategic mindset were instrumental in building and sustaining an exceptional company culture. She has a rare ability to foster meaningful relationships and establish trust at all levels of an organization—an essential strength in people leadership. In addition, Lauren worked closely with executive leadership and the co-CEOs, partnering on key organizational initiatives and aligning people strategies with business goals.<br><br>Her experience across diverse roles has given her a comprehensive, 360-degree understanding of how organizations operate, which allows her to approach HR with both empathy and sound business judgment. Guided by deeply held values around social and environmental justice, Lauren is particularly well suited to mission-driven companies and purpose-led brands. I recommend her without reservation."</p>
+                    <div class="client-info">
+                        <div class="client-avatar" style="background-color: #e67e22">
+                            M
+                        </div>
+                        <div class="client-details">
+                            <h4>Mathieu Senard</h4>
+                            <p>Co-Founder and former Co-CEO, Alter Eco</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="testimonial-text">"I've known Lauren for nearly 15 years and have had the pleasure of working closely with her more recently through PoppySeed HR. Throughout our professional relationship, Lauren has consistently demonstrated the highest level of professionalism, thoughtfulness, and organization.<br><br>She takes the time to truly understand our business needs, provides clear and practical guidance, and approaches every engagement with care and precision. Lauren is not only very knowledgeable, but also a trusted partner who brings structure, clarity, and confidence to the HR process.<br><br>I wholeheartedly recommend Lauren and PoppySeed HR to any organization looking for a reliable, strategic, and personable HR consultant."</p>
+                    <div class="client-info">
+                        <div class="client-avatar" style="background-color: #f39c12">
+                            S
+                        </div>
+                        <div class="client-details">
+                            <h4>Sophie McCallum</h4>
+                            <p>Chief of Staff, Deep Isolation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="testimonial-text">"As two of the first five employees at Alter Eco, Lauren and I spent over a decade in the trenches together. As our HR Director, she was the glue that held our culture together.<br><br>Lauren navigated us through years of scaling pains not by sitting in an isolated office, but by being a true team player right alongside us. She brings a rare mix of genuine heart and grit to every challenge. She is that unique leader who deeply understands people, but more importantly, understands how to make a business actually work when the pressure is on."</p>
+                    <div class="client-info">
+                        <div class="client-avatar" style="background-color: #d68910">
+                            A
+                        </div>
+                        <div class="client-details">
+                            <h4>Antoine Ambert</h4>
+                            <p>CMO, Pur Projet</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="testimonial-text">"Our business was fortunate to find Lauren to lead our HR work. With integrity, intelligence, hard work, and genuine humanity (often paired with wit), she helped our leadership team navigate every aspect of HR within our purpose-driven, B Corp–certified company. Lauren aligned seamlessly with our values and thoughtfully embedded them into the organization. We were consistently proud of how she represented our people and culture, and continually impressed by her resourcefulness and clarity in every situation."</p>
+                    <div class="client-info">
+                        <div class="client-avatar" style="background-color: #ba4a00">
+                            E
+                        </div>
+                        <div class="client-details">
+                            <h4>Edouard Rollet</h4>
+                            <p>Co-Founder and former Co-CEO, Alter Eco</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="testimonial-text">"Partnering with Lauren on organizational development and culture initiatives was an experience defined by trust and authentic creativity. Her resourcefulness and exceptional client service shine through in how she masterfully designs initiatives that deliver meaningful, year-over-year results. Lauren possesses a rare strategic acumen that makes complex work both highly effective and deeply human."</p>
+                    <div class="client-info">
+                        <div class="client-avatar" style="background-color: #ba4a00">
+                            K
+                        </div>
+                        <div class="client-details">
+                            <h4>Kara Powis Ph.D</h4>
+                            <p>Transformative Learning and Change</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="testimonial-text">"Lauren is both highly competent and genuinely personable, which makes her an invaluable partner as my company has grown. Her broad knowledge across so many HR topics has been tremendously helpful, and her annual check-ins with employees provide insights that directly inform how I guide the company. She is consistently available on short notice to help think through challenges, and I deeply value the thoughtful perspective she brings to important decisions."</p>
+                    <div class="client-info">
+                        <div class="client-avatar" style="background-color: #ba4a00">
+                            G
+                        </div>
+                        <div class="client-details">
+                            <h4>Gerald M</h4>
+                            <p>Current Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="./media/images/Poppyseed.png"></i>
+                    PoppyseedHR
+                </div>
+
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/lauren-storella-97172318" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="#" onclick="openContactModal(); return false;">
+                        <i class="fas fa-envelope"></i> Contact
+                    </a>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 PoppyseedHR. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal-overlay" id="contactModal">
+        <div class="contact-modal-box">
+            <button class="contact-modal-close" onclick="closeContactModal()">&times;</button>
+            <h2>Get in Touch</h2>
+            <form onsubmit="submitContactForm(event)">
+                <div class="contact-form-group">
+                    <label for="contact-from">Your Email</label>
+                    <input type="email" id="contact-from" placeholder="you@example.com" required>
+                </div>
+                <div class="contact-form-group">
+                    <label for="contact-subject">Subject</label>
+                    <input type="text" id="contact-subject" placeholder="How can I help?" required>
+                </div>
+                <div class="contact-form-group">
+                    <label for="contact-message">Message</label>
+                    <textarea id="contact-message" placeholder="Tell me about your organization and what you're looking for..." required></textarea>
+                </div>
+                <button type="submit" class="contact-form-submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Contact Modal
+        function openContactModal() {
+            document.getElementById('contactModal').classList.add('open');
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.remove('open');
+        }
+
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) closeContactModal();
+        });
+
+        function submitContactForm(e) {
+            e.preventDefault();
+            const from = document.getElementById('contact-from').value;
+            const subject = encodeURIComponent(document.getElementById('contact-subject').value);
+            const message = encodeURIComponent(
+                'From: ' + from + '\n\n' + document.getElementById('contact-message').value
+            );
+            window.location.href = 'mailto:lauren@poppyseedhr.com?subject=' + subject + '&body=' + message;
+            closeContactModal();
+        }
+
+        // Hero video half-speed
+        const heroVideo = document.getElementById('heroVideo');
+        heroVideo.playbackRate = 0.5;
+        heroVideo.addEventListener('canplay', () => { heroVideo.playbackRate = 0.5; });
+
+        // Carousel
+        const slides = document.querySelectorAll('.carousel-slide');
+        let current = 0;
+        const DISPLAY_MS = 10000;
+        const FADE_MS = 800;
+
+        function advance() {
+            const next = (current + 1) % slides.length;
+
+            // Fade out current (black shows through)
+            slides[current].classList.remove('active');
+
+            // After fade-out completes, fade in next
+            setTimeout(() => {
+                slides[next].classList.add('active');
+                current = next;
+            }, FADE_MS);
+        }
+
+        setInterval(advance, DISPLAY_MS);
+    </script>
+</body>
+</html>
