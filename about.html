@@ -28,7 +28,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="clients.html">Client Work</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="#" onclick="openContactModal(); return false;">Contact</a></li>
+                <li><a href="#" class="contact-trigger">Contact</a></li>
             </ul>
         </div>
     </header>
@@ -91,7 +91,7 @@
                     <a href="https://www.linkedin.com/in/lauren-storella-97172318" target="_blank">
                         <i class="fab fa-linkedin"></i> LinkedIn
                     </a>
-                    <a href="#" onclick="openContactModal(); return false;">
+                    <a href="#" class="contact-trigger">
                         <i class="fas fa-envelope"></i> Contact
                     </a>
                 </div>
@@ -106,9 +106,9 @@
     <!-- Contact Modal -->
     <div class="contact-modal-overlay" id="contactModal">
         <div class="contact-modal-box">
-            <button class="contact-modal-close" onclick="closeContactModal()">&times;</button>
+            <button class="contact-modal-close">&times;</button>
             <h2>Get in Touch</h2>
-            <form onsubmit="submitContactForm(event)">
+            <form>
                 <div class="contact-form-group">
                     <label for="contact-from">Your Email</label>
                     <input type="email" id="contact-from" placeholder="you@example.com" required>
@@ -126,42 +126,6 @@
         </div>
     </div>
 
-    <script>
-        // Mobile Menu Toggle
-        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-            document.getElementById('navLinks').classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById('navLinks').classList.remove('active');
-            });
-        });
-
-        // Contact Modal
-        function openContactModal() {
-            document.getElementById('contactModal').classList.add('open');
-        }
-
-        function closeContactModal() {
-            document.getElementById('contactModal').classList.remove('open');
-        }
-
-        document.getElementById('contactModal').addEventListener('click', function(e) {
-            if (e.target === this) closeContactModal();
-        });
-
-        function submitContactForm(e) {
-            e.preventDefault();
-            const from = document.getElementById('contact-from').value;
-            const subject = encodeURIComponent(document.getElementById('contact-subject').value);
-            const message = encodeURIComponent(
-                'From: ' + from + '\n\n' + document.getElementById('contact-message').value
-            );
-            window.location.href = 'mailto:lauren@poppyseedhr.com?subject=' + subject + '&body=' + message;
-            closeContactModal();
-        }
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>

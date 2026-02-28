@@ -55,7 +55,7 @@ a:hover {
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -248,7 +248,7 @@ main {
 }
 
 .testimonial-card {
-    background-color: #f7f6d7;
+    background-color: #f2f2e7;
     padding: 40px;
     border-radius: 15px;
     border-top: 4px solid #e2c754;
@@ -443,13 +443,118 @@ footer {
 
 }
 
-/* ===================== Hero Video ===================== */
-.hero-section {
+/* ===================== How I Work Columns ===================== */
+.how-i-work-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    font-size: 1.15rem;
+    line-height: 1.75;
+}
+
+.how-work-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3rem;
+    color: var(--dark-color);
+    margin-bottom: 12px;
+}
+
+.heading-bullet {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* ===================== How I Work Band ===================== */
+.how-i-work-band {
+    background-color: #f7f6d7;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 3s ease;
+}
+
+.how-i-work-band.visible {
+    opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .how-i-work-columns {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* ===================== Intro Band ===================== */
+/* Transparent so the sticky video shows through as text scrolls over it */
+.intro-band {
     position: relative;
+    z-index: 2;
+    background: transparent;
+}
+
+/* ===================== Intro CTA ===================== */
+.intro-cta {
+    text-align: center;
+    padding-bottom: 48px;
+}
+
+.cta-btn {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+.cta-btn:hover {
+    background: var(--secondary-color);
+}
+
+/* ===================== Intro Columns ===================== */
+.intro-columns {
+    display: grid;
+    grid-template-columns: .5fr .5fr;
+    gap: 60px;
+    padding: 36px 20px 48px;
+    font-size: 1.4rem;
+    line-height: 1.75;
+    color: var(--text-color);
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.9),
+        0 0 16px rgba(255, 255, 255, 0.7),
+        0 2px 4px rgba(255, 255, 255, 0.6);
+}
+
+@media screen and (max-width: 768px) {
+    .intro-columns {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 28px 20px 36px;
+    }
+}
+
+/* ===================== Hero Video ===================== */
+/* Sticky wrapper — hero sticks inside here; releases once intro has scrolled past */
+.hero-scroll-wrapper {
+    position: relative;
+}
+
+.hero-section {
+    position: sticky;
+    top: 0; /* JS overrides to header.offsetHeight */
     width: 100%;
     margin-top: -40px; /* cancel main's top padding so video touches header */
-    min-height: 50vh;
-    overflow: hidden; /* prevent child margin collapse bleeding through */
+    min-height: 25vh;
+    overflow: hidden;
 }
 
 .hero-video-strip {
@@ -457,7 +562,7 @@ footer {
     top: 0;
     left: 0;
     right: 0;
-    height: 50vh;
+    height: 25vh;
     overflow: hidden;
     z-index: 0;
 }
@@ -466,6 +571,7 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 62%;
     display: block;
 }
 
@@ -482,8 +588,9 @@ footer {
     right: 0;
     padding: 28px 40px;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, transparent 100%);
-    z-index: 1;
+    z-index: 3;
     text-align: center;
+    pointer-events: none;
 }
 
 .hero-title h1 {
@@ -536,7 +643,7 @@ footer {
 
 @media screen and (max-width: 768px) {
     .hero-video-strip {
-        height: 40vh;
+        height: 20vh;
     }
 
     .hero-cards-wrapper {
@@ -569,14 +676,53 @@ footer {
     width: 85%;
 }
 
-/* Carousel inside hero-section (clients page) — starts below H1, fits within 100vh */
-.hero-section > .carousel-wrapper {
+/* ===================== Clients Two-Column Layout ===================== */
+.clients-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start; /* required: lets left column go sticky independently */
+    max-width: 1200px;
+    margin: -7.5vh auto 0; /* pull up so top 30% of carousel overlaps hero (hero = 25vh, 30% = 7.5vh) */
+    padding: 0 30px 60px;
     position: relative;
-    z-index: 1;
-    margin-top: 110px;
-    width: auto;
-    height: calc(100vh - 260px);
+    z-index: 3; /* paint over the sticky hero video */
+}
+
+/* Left column: carousel sticks below the header while right column scrolls */
+.carousel-column {
+    position: sticky;
+    top: 100px; /* overridden by JS to header.offsetHeight + gap */
+}
+
+/* Carousel fills its column width */
+.clients-layout .carousel-wrapper {
+    width: 100%;
     aspect-ratio: 1 / 1;
+    margin: 0;
+    border-radius: 12px;
+}
+
+/* Right column: plain scroll, no extra width cap needed */
+.testimonials-column .testimonials-container {
+    max-width: none;
+    margin: 0 0 40px;
+}
+
+@media screen and (max-width: 900px) {
+    .clients-layout {
+        grid-template-columns: 1fr;
+        padding: 30px 20px 40px;
+    }
+
+    .carousel-column {
+        position: static; /* no sticky on mobile — carousel sits above testimonials */
+    }
+
+    .clients-layout .carousel-wrapper {
+        width: 80%;
+        margin: 0 auto 30px;
+    }
 }
 
 /* ===================== Carousel ===================== */
