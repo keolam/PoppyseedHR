@@ -16,6 +16,13 @@
     font-style: normal;
 }
 
+.lora {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -23,6 +30,9 @@
     font-family: 'Nunito', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+h2 {
+    font-family: 'Lora', serif;
+}
 body {
     line-height: 1.6;
     color: var(--text-color);
@@ -55,7 +65,7 @@ a:hover {
 
 .container {
     width: 100%;
-    max-width: 900px;
+    max-width: 1036px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -195,7 +205,7 @@ main {
 }
 
 .service-card {
-    background-color: #f7f6d7;
+    background-color: #fffee8;
     padding: 30px;
     border-radius: 10px;
     box-shadow: var(--shadow);
@@ -356,6 +366,19 @@ footer {
     color: var(--accent-color);
 }
 
+.section-h2-band {
+    width: 100%;
+    background-color: #f03d26;
+    text-align: center;
+    padding: 28px 20px;
+}
+
+.section-h2-band h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin: 0;
+}
+
 .copyright {
     width: 100%;
     text-align: center;
@@ -381,10 +404,7 @@ footer {
         font-size: 1.2rem;
     }
 
-    /* Make What I Do grid single column on tablets */
-    #services {
-        grid-template-columns: 1fr !important;
-    }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -456,7 +476,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     color: var(--dark-color);
     margin-bottom: 12px;
 }
@@ -470,7 +490,7 @@ footer {
 
 /* ===================== How I Work Band ===================== */
 .how-i-work-band {
-    background-color: #f7f6d7;
+    background-color: #fffee8;
     width: 100%;
     opacity: 0;
     transition: opacity 3s ease;
@@ -679,10 +699,10 @@ footer {
 /* ===================== Clients Two-Column Layout ===================== */
 .clients-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
     gap: 40px;
     align-items: start; /* required: lets left column go sticky independently */
-    max-width: 1200px;
+    max-width: 1310px;
     margin: -7.5vh auto 0; /* pull up so top 30% of carousel overlaps hero (hero = 25vh, 30% = 7.5vh) */
     padding: 0 30px 60px;
     position: relative;
@@ -752,7 +772,7 @@ footer {
 .carousel-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 
@@ -785,7 +805,7 @@ footer {
 }
 
 .contact-modal-box {
-    background: #f7f6d7;
+    background: #fffee8;
     border-radius: 14px;
     padding: 40px 36px 32px;
     width: min(520px, 92vw);
@@ -865,4 +885,239 @@ footer {
 
 .contact-form-submit:hover {
     background: var(--secondary-color);
+}
+
+/* ===================== What I Do Stripes ===================== */
+.services-stripes {
+    width: 100%;
+}
+
+.service-stripe {
+    position: relative;
+    min-height: 156px;
+    width: 100%;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(226, 199, 84, 0.5);
+    transition: background-color 0.4s ease;
+}
+
+.service-stripe:first-child {
+    border-top: 1px solid rgba(226, 199, 84, 0.5);
+}
+
+.service-stripe:nth-child(odd) {
+    background-color: #fffee8;
+}
+
+.service-stripe:nth-child(even) {
+    background-color: #fdf8d9;
+}
+
+.service-stripe:hover {
+    background-color: var(--light-color);
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.03 0.7' numOctaves='5' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' fill='%23a09850' filter='url(%23n)' opacity='0.18'/%3E%3C/svg%3E"),
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(140, 130, 60, 0.09) 3px,
+            rgba(140, 130, 60, 0.09) 4px
+        );
+    background-size: 400px 400px, auto;
+}
+
+/* Default state: absolutely positioned so it doesn't push stripe height */
+.stripe-default {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+    padding: 24px max(20px, calc((100% - 1036px) / 2 + 20px));
+    transition: opacity 0.6s ease;
+    opacity: 1;
+    z-index: 1;
+}
+
+.stripe-default i {
+    font-size: 2.4rem;
+    color: #f03d26;
+    flex-shrink: 0;
+}
+
+.stripe-default h3 {
+    font-size: 2rem;
+    color: var(--dark-color);
+    margin: 0;
+    font-weight: 700;
+}
+
+/* Hover state: in normal flow so stripe grows to fit content */
+.stripe-hover {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.6s ease, max-height 0.6s ease;
+}
+
+.stripe-hover-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1036px;
+    margin: 0 auto;
+    padding: 28px 20px;
+    text-align: left;
+}
+
+.stripe-hover-inner h3 {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.stripe-hover p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    line-height: 1.75;
+    margin-bottom: 16px;
+}
+
+.stripe-hover ul {
+    list-style: disc;
+    line-height: 1.8;
+    padding-left: 20px;
+    font-size: 1.05rem;
+    color: var(--text-color);
+}
+
+.service-stripe:hover .stripe-default {
+    opacity: 0;
+}
+
+.service-stripe:hover .stripe-hover {
+    max-height: 400px;
+    opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .stripe-default h3 {
+        font-size: 1.4rem;
+    }
+
+    .stripe-default i {
+        font-size: 1.8rem;
+    }
+
+    .stripe-default {
+        padding: 20px 30px;
+        gap: 16px;
+    }
+
+    .stripe-hover-inner {
+        padding: 20px 30px;
+    }
+
+    .stripe-hover p {
+        font-size: 1rem;
+    }
+}
+
+/* ===================== About Value Stripes ===================== */
+.about-stripes {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.about-stripe {
+    position: relative;
+    min-height: calc(52.5vh / 4);
+    width: 100%;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(226, 199, 84, 0.5);
+    transition: background-color 0.4s ease;
+}
+
+.about-stripe:first-child {
+    border-top: 1px solid rgba(226, 199, 84, 0.5);
+}
+
+.about-stripe:nth-child(odd) {
+    background-color: #fffee8;
+}
+
+.about-stripe:nth-child(even) {
+    background-color: #fdf8d9;
+}
+
+.about-stripe:hover {
+    background-color: var(--light-color);
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.03 0.7' numOctaves='5' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' fill='%23a09850' filter='url(%23n)' opacity='0.18'/%3E%3C/svg%3E"),
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(140, 130, 60, 0.09) 3px,
+            rgba(140, 130, 60, 0.09) 4px
+        );
+    background-size: 400px 400px, auto;
+}
+
+.about-stripe-default {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+    transition: opacity 0.6s ease;
+    opacity: 1;
+    z-index: 1;
+}
+
+.about-stripe-default h3 {
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    font-weight: 700;
+    margin: 0;
+}
+
+.about-stripe-hover {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.6s ease, max-height 0.6s ease;
+}
+
+.about-stripe-hover-inner {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-stripe-hover-inner h3 {
+    font-size: 1.3rem;
+    color: var(--dark-color);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.about-stripe-hover-inner p {
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.75;
+}
+
+.about-stripe:hover .about-stripe-default {
+    opacity: 0;
+}
+
+.about-stripe:hover .about-stripe-hover {
+    max-height: 300px;
+    opacity: 1;
 }

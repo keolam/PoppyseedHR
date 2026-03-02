@@ -103,11 +103,31 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(howIWorkBand);
     }
 
+    // Fade hero title as clients-layout scrolls over it (clients page only)
+    const heroTitleDiv = document.querySelector('.hero-section .hero-title');
+    const clientsLayout = document.querySelector('.clients-layout');
+    if (heroTitleDiv && clientsLayout) {
+        function updateHeroTitleFade() {
+            const layoutTop = clientsLayout.getBoundingClientRect().top;
+            const titleTop = heroTitleDiv.getBoundingClientRect().top;
+            const titleBottom = heroTitleDiv.getBoundingClientRect().bottom;
+            if (layoutTop >= titleBottom) {
+                heroTitleDiv.style.opacity = 1;
+            } else if (layoutTop <= titleTop) {
+                heroTitleDiv.style.opacity = 0;
+            } else {
+                heroTitleDiv.style.opacity = (layoutTop - titleTop) / (titleBottom - titleTop);
+            }
+        }
+        window.addEventListener('scroll', updateHeroTitleFade, { passive: true });
+        updateHeroTitleFade();
+    }
+
     // Carousel (clients page only)
     const slides = document.querySelectorAll('.carousel-slide');
     if (slides.length > 0) {
         let current = 0;
-        const DISPLAY_MS = 10000;
+        const DISPLAY_MS = 5000;
         const FADE_MS = 800;
 
         function advance() {

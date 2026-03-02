@@ -8,8 +8,8 @@
     <title>PoppyseedHR | Professional HR Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -67,9 +67,11 @@
 
         <!-- How I Work - full-width band -->
         <section class="how-i-work-band">
+            <div class="section-h2-band">
+                <h2>How I Work</h2>
+            </div>
             <div class="container">
-                <h2 style="text-align: center; font-size: 2.5rem; color: var(--dark-color); margin-bottom: 40px; padding-top: 60px;">How I Work</h2>
-                <div class="how-i-work-columns" style="padding-bottom: 60px;">
+                <div class="how-i-work-columns" style="padding: 40px 0 60px;">
                     <div>
                         <h3 class="how-work-heading">
                             <img src="./media/images/Poppyseed.png" class="heading-bullet">
@@ -102,66 +104,84 @@
         </section>
 
         <!-- What I Do Section -->
-        <div class="container">
-            <h2 style="text-align: center; font-size: 2.5rem; color: var(--dark-color); margin-bottom: 40px; padding-top: 60px;">What I Do</h2>
-            <section id="services" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 1000px; margin: 0 auto; padding-bottom: 60px;">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
+        <div class="section-h2-band">
+            <h2>What I Do</h2>
+        </div>
+        <div class="services-stripes" id="services">
+            <div class="service-stripe">
+                <div class="stripe-default">
+                    <i class="fas fa-users"></i>
+                    <h3>Talent Acquisition & Management</h3>
+                </div>
+                <div class="stripe-hover">
+                    <div class="stripe-hover-inner">
                         <h3>Talent Acquisition & Management</h3>
                         <p>From recruiting top talent to creating seamless onboarding experiences, I help you build and maintain a strong workforce that drives your organization forward.</p>
-                        <ul style="text-align: left; margin-top: 15px; line-height: 1.8; padding-left: 40px;">
+                        <ul>
                             <li>Recruiting and hiring strategies</li>
                             <li>Onboarding and off-boarding programs</li>
                             <li>Employee relations support</li>
                             <li>Conflict resolution</li>
                         </ul>
                     </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
+                </div>
+            </div>
+            <div class="service-stripe">
+                <div class="stripe-default">
+                    <i class="fas fa-heart"></i>
+                    <h3>Culture & Employee Experience</h3>
+                </div>
+                <div class="stripe-hover">
+                    <div class="stripe-hover-inner">
                         <h3>Culture & Employee Experience</h3>
                         <p>Build a workplace culture where employees thrive. I help foster an inclusive, engaging environment that reflects your values and attracts top talent.</p>
-                        <ul style="text-align: left; margin-top: 15px; line-height: 1.8; padding-left: 40px;">
+                        <ul>
                             <li>Fostering organizational culture</li>
                             <li>Diversity, Equity & Inclusion (DEI) initiatives</li>
                             <li>Learning and development programs</li>
                             <li>Employee engagement strategies</li>
                         </ul>
                     </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-balance-scale"></i>
-                        </div>
+                </div>
+            </div>
+            <div class="service-stripe">
+                <div class="stripe-default">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Compliance & Policies</h3>
+                </div>
+                <div class="stripe-hover">
+                    <div class="stripe-hover-inner">
                         <h3>Compliance & Policies</h3>
-                        <p>Stay compliant and protected with comprehensive HR policies and practices. I ensure your organization meets all legal requirements while creating clear, fair guidelines for your team.</p>
-                        <ul style="text-align: left; margin-top: 15px; line-height: 1.8; padding-left: 40px;">
+                        <p>Stay compliant and protected with comprehensive HR policies and practices. I ensure your organization meets all regulatory requirements while creating clear, fair guidelines for your team.</p>
+                        <ul>
                             <li>Employee handbooks and policies</li>
                             <li>Compliance management and audits</li>
                             <li>Legal requirement updates</li>
                             <li>Safety policies and procedures</li>
                         </ul>
                     </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-clipboard-check"></i>
-                        </div>
+                </div>
+            </div>
+            <div class="service-stripe">
+                <div class="stripe-default">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h3>Performance Management</h3>
+                </div>
+                <div class="stripe-hover">
+                    <div class="stripe-hover-inner">
                         <h3>Performance Management</h3>
                         <p>I help companies create a continuous, forward-thinking system that actually links what your people do every day to your big-picture business goals.</p>
-                        <ul style="text-align: left; margin-top: 15px; line-height: 1.8; padding-left: 40px;">
+                        <ul>
                             <li>Create a culture of open feedback</li>
                             <li>System design and implementation</li>
                             <li>Goal setting</li>
                             <li>Compensation review and alignment</li>
                         </ul>
                     </div>
-                </section>
+                </div>
+            </div>
         </div>
+        <div style="padding-bottom: 60px;"></div>
     </main>
 
     <!-- Footer -->
