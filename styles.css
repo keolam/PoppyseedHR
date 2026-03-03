@@ -1102,6 +1102,93 @@ footer {
     }
 }
 
+/* ===================== About Page Two-Column Layout ===================== */
+.about-layout {
+    display: grid;
+    grid-template-columns: 1fr 0.72fr;
+    gap: 40px;
+    align-items: start;
+    max-width: 1310px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 0 30px 60px;
+    position: relative;
+    z-index: 3;
+}
+
+.about-doodle-column {
+    position: sticky;
+    top: 100px; /* overridden by JS to header.offsetHeight + gap */
+}
+
+.about-doodle-column img {
+    width: 100%;
+    height: 52.5vh;
+    object-fit: contain;
+    object-position: center;
+}
+
+@media screen and (max-width: 900px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+        padding: 20px 20px 40px;
+    }
+
+    .about-doodle-column {
+        display: none;
+    }
+}
+
+/* ===================== About Value Cards ===================== */
+.about-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.about-value-card {
+    background-color: #fffee8;
+    border: 1px solid rgba(226, 199, 84, 0.5);
+    border-top: 4px solid #e2c754;
+    border-radius: 10px;
+    padding: 28px 22px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-value-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.13);
+}
+
+.about-value-card .heading-bullet {
+    width: 28px;
+    height: 28px;
+}
+
+.about-value-card h3 {
+    font-size: 1.2rem;
+    color: var(--dark-color);
+    font-weight: 700;
+    margin: 0;
+}
+
+.about-value-card p {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .about-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ===================== About Value Stripes ===================== */
 .about-stripes {
     display: flex;

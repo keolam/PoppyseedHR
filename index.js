@@ -68,6 +68,17 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('resize', updateCarouselSticky);
     }
 
+    // Sticky doodle column: pins right column below header (about page only)
+    const aboutDoodleCol = document.querySelector('.about-doodle-column');
+    if (aboutDoodleCol && pageHeader) {
+        function updateAboutDoodleSticky() {
+            aboutDoodleCol.style.top = (pageHeader.offsetHeight + 24) + 'px';
+        }
+        updateAboutDoodleSticky();
+        window.addEventListener('load', updateAboutDoodleSticky);
+        window.addEventListener('resize', updateAboutDoodleSticky);
+    }
+
     // Clip intro-band text as it scrolls behind the hero h1 (index page only)
     const introBand = document.querySelector('.intro-band');
     const heroTitleEl = document.querySelector('.hero-title');
