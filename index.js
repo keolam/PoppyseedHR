@@ -103,6 +103,20 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(howIWorkBand);
     }
 
+    // Services Provided fade-in (index page only)
+    const servicesSection = document.querySelector('.services-section');
+    if (servicesSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        observer.observe(servicesSection);
+    }
+
     // Fade hero title as clients-layout scrolls over it (clients page only)
     const heroTitleDiv = document.querySelector('.hero-section .hero-title');
     const clientsLayout = document.querySelector('.clients-layout');

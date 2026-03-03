@@ -4,6 +4,7 @@
     --secondary-color: #e67e22; /* Medium Orange */
     --accent-color: #f39c12; /* Golden Orange */
     --dark-color: #2d3436;
+    --dark-grey: #434343;
     --light-color: #ffffff; /* White background */
     --text-color: #333;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -368,7 +369,8 @@ footer {
 
 .section-h2-band {
     width: 100%;
-    background-color: #f03d26;
+    background-color: var(--dark-grey);
+    /*background-color: #f03d26;*/
     text-align: center;
     padding: 28px 20px;
 }
@@ -463,13 +465,70 @@ footer {
 
 }
 
-/* ===================== How I Work Columns ===================== */
-.how-i-work-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+/* ===================== How I Work Stripes ===================== */
+.how-i-work-stripes {
+    width: 100%;
+}
+
+.how-i-work-stripe {
+    position: relative;
+    min-height: 156px;
+    width: 100%;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(226, 199, 84, 0.5);
+    transition: background-color 0.4s ease;
+}
+
+.how-i-work-stripe:first-child {
+    border-top: 1px solid rgba(226, 199, 84, 0.5);
+}
+
+.how-i-work-stripe:nth-child(odd) {
+    background-color: #fffee8;
+}
+
+.how-i-work-stripe:nth-child(even) {
+    background-color: #e5e5e5;
+}
+
+/* Default state: absolutely positioned heading + static icon */
+.hiw-default {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 24px max(20px, calc((100% - 1036px) / 2 + 20px));
+    transition: opacity 0.6s ease;
+    opacity: 1;
+    z-index: 1;
+}
+
+.hiw-default h3 {
+    font-size: 2rem;
+    color: var(--dark-color);
+    margin: 0;
+    font-weight: 700;
+}
+
+/* Hover state: expands to reveal paragraphs */
+.hiw-hover {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.6s ease, max-height 0.6s ease;
+}
+
+.hiw-hover-inner {
+    max-width: 1036px;
+    margin: 0 auto;
+    padding: 28px 20px;
     font-size: 1.15rem;
     line-height: 1.75;
+}
+
+.hiw-hover-inner p {
+    color: var(--text-color);
 }
 
 .how-work-heading {
@@ -488,6 +547,51 @@ footer {
     flex-shrink: 0;
 }
 
+/* On hover: fade out default, expand hover content, spin icon */
+.how-i-work-stripe:hover .hiw-default {
+    opacity: 0;
+}
+
+.how-i-work-stripe:hover .hiw-hover {
+    max-height: 500px;
+    opacity: 1;
+ 
+    background-color: var(--light-color);
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.03 0.7' numOctaves='5' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' fill='%23a09850' filter='url(%23n)' opacity='0.18'/%3E%3C/svg%3E"),
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(140, 130, 60, 0.09) 3px,
+            rgba(140, 130, 60, 0.09) 4px
+        );
+    background-size: 400px 400px, auto;
+
+}
+
+.how-i-work-stripe:hover .hiw-icon {
+    -webkit-animation: rotating 6s linear infinite;
+    -moz-animation: rotating 6s linear infinite;
+    animation: rotating 6s linear infinite;
+}
+
+@media screen and (max-width: 768px) {
+    .hiw-default h3 {
+        font-size: 1.4rem;
+    }
+
+    .hiw-default {
+        padding: 20px 30px;
+        gap: 16px;
+    }
+
+    .hiw-hover-inner {
+        padding: 20px 30px;
+        font-size: 1rem;
+    }
+}
+
 /* ===================== How I Work Band ===================== */
 .how-i-work-band {
     background-color: #fffee8;
@@ -500,12 +604,6 @@ footer {
     opacity: 1;
 }
 
-@media screen and (max-width: 768px) {
-    .how-i-work-columns {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-}
 
 /* ===================== Intro Band ===================== */
 /* Transparent so the sticky video shows through as text scrolls over it */
@@ -699,7 +797,7 @@ footer {
 /* ===================== Clients Two-Column Layout ===================== */
 .clients-layout {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1.1fr 1fr;
     gap: 40px;
     align-items: start; /* required: lets left column go sticky independently */
     max-width: 1310px;
@@ -808,9 +906,17 @@ footer {
     background: #fffee8;
     border-radius: 14px;
     padding: 40px 36px 32px;
-    width: min(520px, 92vw);
+    width: min(676px, 92vw);
     position: relative;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (max-width: 768px) {
+    .contact-modal-box {
+        width: 90vw;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
 }
 
 .contact-modal-box h2 {
@@ -887,143 +993,112 @@ footer {
     background: var(--secondary-color);
 }
 
-/* ===================== What I Do Stripes ===================== */
-.services-stripes {
-    width: 100%;
+/* ===================== Services Section Fade-in ===================== */
+.services-section {
+    opacity: 0;
+    transition: opacity 6s ease;
 }
 
-.service-stripe {
-    position: relative;
-    min-height: 156px;
-    width: 100%;
-    cursor: pointer;
-    border-bottom: 1px solid rgba(226, 199, 84, 0.5);
-    transition: background-color 0.4s ease;
+.services-section.visible {
+    opacity: 1;
 }
 
-.service-stripe:first-child {
-    border-top: 1px solid rgba(226, 199, 84, 0.5);
+/* ===================== Services Grid ===================== */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1036px;
+    margin: 0 auto;
+    padding: 48px 20px 64px;
 }
 
-.service-stripe:nth-child(odd) {
+.svc-card {
     background-color: #fffee8;
+    border: 1px solid rgba(226, 199, 84, 0.5);
+    border-top: 4px solid #e2c754;
+    border-radius: 10px;
+    padding: 0;
+    position: relative;
+    min-height: 220px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.service-stripe:nth-child(even) {
-    background-color: #fdf8d9;
-}
-
-.service-stripe:hover {
-    background-color: var(--light-color);
-    background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.03 0.7' numOctaves='5' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' fill='%23a09850' filter='url(%23n)' opacity='0.18'/%3E%3C/svg%3E"),
-        repeating-linear-gradient(
-            0deg,
-            transparent 0px,
-            transparent 3px,
-            rgba(140, 130, 60, 0.09) 3px,
-            rgba(140, 130, 60, 0.09) 4px
-        );
-    background-size: 400px 400px, auto;
-}
-
-/* Default state: absolutely positioned so it doesn't push stripe height */
-.stripe-default {
+.svc-default,
+.svc-hover {
     position: absolute;
     inset: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    gap: 24px;
-    padding: 24px max(20px, calc((100% - 1036px) / 2 + 20px));
-    transition: opacity 0.6s ease;
-    opacity: 1;
-    z-index: 1;
+    justify-content: center;
+    gap: 14px;
+    padding: 28px 20px;
+    text-align: center;
+    transition: opacity 0.35s ease;
 }
 
-.stripe-default i {
+.svc-default {
+    opacity: 1;
+}
+
+.svc-default i {
     font-size: 2.4rem;
     color: #f03d26;
-    flex-shrink: 0;
 }
 
-.stripe-default h3 {
-    font-size: 2rem;
+.svc-default h3 {
+    font-size: 1.3rem;
     color: var(--dark-color);
+    font-weight: 700;
     margin: 0;
-    font-weight: 700;
 }
 
-/* Hover state: in normal flow so stripe grows to fit content */
-.stripe-hover {
-    max-height: 0;
-    overflow: hidden;
+.svc-hover {
     opacity: 0;
-    transition: opacity 0.6s ease, max-height 0.6s ease;
 }
 
-.stripe-hover-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    max-width: 1036px;
-    margin: 0 auto;
-    padding: 28px 20px;
-    text-align: left;
-}
-
-.stripe-hover-inner h3 {
-    font-size: 1.8rem;
+.svc-hover h3 {
+    font-size: 1.15rem;
     color: var(--dark-color);
     font-weight: 700;
-    margin-bottom: 10px;
+    margin: 0;
 }
 
-.stripe-hover p {
-    font-size: 1.2rem;
+.svc-hover p {
+    font-size: 0.88rem;
     color: var(--text-color);
-    line-height: 1.75;
-    margin-bottom: 16px;
+    line-height: 1.65;
+    margin: 0;
 }
 
-.stripe-hover ul {
-    list-style: disc;
-    line-height: 1.8;
-    padding-left: 20px;
-    font-size: 1.05rem;
-    color: var(--text-color);
-}
-
-.service-stripe:hover .stripe-default {
+.svc-card:hover .svc-default {
     opacity: 0;
 }
 
-.service-stripe:hover .stripe-hover {
-    max-height: 400px;
+.svc-card:hover .svc-hover {
     opacity: 1;
+}
+
+.svc-card:hover {
+    transform: scale(1.06);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
 }
 
 @media screen and (max-width: 768px) {
-    .stripe-default h3 {
-        font-size: 1.4rem;
-    }
-
-    .stripe-default i {
-        font-size: 1.8rem;
-    }
-
-    .stripe-default {
-        padding: 20px 30px;
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 16px;
+        padding: 32px 16px 48px;
     }
+}
 
-    .stripe-hover-inner {
-        padding: 20px 30px;
-    }
-
-    .stripe-hover p {
-        font-size: 1rem;
+@media screen and (max-width: 480px) {
+    .services-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1120,4 +1195,40 @@ footer {
 .about-stripe:hover .about-stripe-hover {
     max-height: 300px;
     opacity: 1;
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 6s linear infinite;
+  -moz-animation: rotating 6s linear infinite;
+  -ms-animation: rotating 6s linear infinite;
+  -o-animation: rotating 6s linear infinite;
+  animation: rotating 6s linear infinite;
 }
