@@ -169,6 +169,26 @@ document.addEventListener('DOMContentLoaded', function () {
         updateHeroTitleFade();
     }
 
+    // Fade hero title as about-layout scrolls over it (about page only)
+    const aboutLayout = document.querySelector('.about-layout');
+    const aboutHeroTitle = document.querySelector('.hero-section .hero-title');
+    if (aboutLayout && aboutHeroTitle) {
+        function updateAboutHeroTitleFade() {
+            const layoutTop = aboutLayout.getBoundingClientRect().top;
+            const titleTop = aboutHeroTitle.getBoundingClientRect().top;
+            const titleBottom = aboutHeroTitle.getBoundingClientRect().bottom;
+            if (layoutTop >= titleBottom) {
+                aboutHeroTitle.style.opacity = 1;
+            } else if (layoutTop <= titleTop) {
+                aboutHeroTitle.style.opacity = 0;
+            } else {
+                aboutHeroTitle.style.opacity = (layoutTop - titleTop) / (titleBottom - titleTop);
+            }
+        }
+        window.addEventListener('scroll', updateAboutHeroTitleFade, { passive: true });
+        updateAboutHeroTitleFade();
+    }
+
     // Carousel (clients page only)
     const slides = document.querySelectorAll('.carousel-slide');
     if (slides.length > 0) {

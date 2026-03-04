@@ -761,6 +761,18 @@ footer {
         height: 20vh;
     }
 
+    .hero-section {
+        min-height: 20vh;
+    }
+
+    .hero-title {
+        padding: 16px 20px;
+    }
+
+    .hero-title h1 {
+        font-size: 1.4rem;
+    }
+
     .hero-cards-wrapper {
         padding: 80px 16px 40px;
     }
@@ -1011,7 +1023,7 @@ footer {
 }
 
 .svc-card {
-    background-color: #fffee8;
+    background-color: #f2f2e7;
     border: 1px solid rgba(226, 199, 84, 0.5);
     border-top: 4px solid #e2c754;
     border-radius: 10px;
@@ -1146,7 +1158,7 @@ footer {
 }
 
 .about-value-card {
-    background-color: #fffee8;
+    background-color: #f2f2e7;
     border: 1px solid rgba(226, 199, 84, 0.5);
     border-top: 4px solid #e2c754;
     border-radius: 10px;
