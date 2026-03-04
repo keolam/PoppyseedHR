@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Contact form submit
-    const contactForm = document.querySelector('#contactModal form');
+    // Contact form submit (Formspree)
+    const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', submitContactForm);
     }
@@ -128,6 +128,27 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(servicesSection);
     }
 
+    // Fade about-header p as it scrolls up over the sticky hero (clients page only)
+    const aboutHeaderP = document.querySelector('.about-header p');
+    const heroSection = document.querySelector('.hero-section');
+    if (aboutHeaderP && heroSection) {
+        function updateAboutHeaderFade() {
+            const heroBottom = heroSection.getBoundingClientRect().bottom;
+            const pTop = aboutHeaderP.getBoundingClientRect().top;
+            const pBottom = aboutHeaderP.getBoundingClientRect().bottom;
+            const overlap = heroBottom - pTop;
+            if (overlap <= 0) {
+                aboutHeaderP.style.opacity = 1;
+            } else if (overlap >= pBottom - pTop) {
+                aboutHeaderP.style.opacity = 0;
+            } else {
+                aboutHeaderP.style.opacity = 1 - overlap / (pBottom - pTop);
+            }
+        }
+        window.addEventListener('scroll', updateAboutHeaderFade, { passive: true });
+        updateAboutHeaderFade();
+    }
+
     // Fade hero title as clients-layout scrolls over it (clients page only)
     const heroTitleDiv = document.querySelector('.hero-section .hero-title');
     const clientsLayout = document.querySelector('.clients-layout');
@@ -175,15 +196,35 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('contactModal').classList.remove('open');
     }
 
-    function submitContactForm(e) {
+    async function submitContactForm(e) {
         e.preventDefault();
-        const from = document.getElementById('contact-from').value;
-        const subject = encodeURIComponent(document.getElementById('contact-subject').value);
-        const message = encodeURIComponent(
-            'From: ' + from + '\n\n' + document.getElementById('contact-message').value
-        );
-        window.location.href = 'mailto:lauren@poppyseedhr.com?subject=' + subject + '&body=' + message;
-        closeContactModal();
+        const btn = contactForm.querySelector('.contact-form-submit');
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+
+        try {
+            const res = await fetch('https://formspree.io/f/xjgenyzq', {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (res.ok) {
+                contactForm.reset();
+                btn.textContent = 'Sent!';
+                setTimeout(() => {
+                    closeContactModal();
+                    btn.textContent = 'Send Message';
+                    btn.disabled = false;
+                }, 1500);
+            } else {
+                btn.textContent = 'Error — try again';
+                btn.disabled = false;
+            }
+        } catch {
+            btn.textContent = 'Error — try again';
+            btn.disabled = false;
+        }
     }
 
 });
