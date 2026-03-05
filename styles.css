@@ -1,5 +1,6 @@
 /* Base Styles */
 :root {
+    color-scheme: light;
     --primary-color: #d35400; /* Deep Orange */
     --secondary-color: #e67e22; /* Medium Orange */
     --accent-color: #f39c12; /* Golden Orange */
